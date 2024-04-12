@@ -1,0 +1,22 @@
+
+
+<div id="wapper">
+  <div class="panel">
+    <h2> ACESSO <span>APP</span></h2>
+    <br/>
+    <form action="#">
+      <div>
+        <label for="exampleInputEmail1">Username : </label>
+        <br/>
+        <input type="username" pInputText  name="username" id="username" [(ngModel)]="username" placeholder="Enter username">
+      </div>
+      <br/>
+      <div>
+        <label for="exampleInputPassword1">Password : </label>
+        <br/>
+        <input type="password" pInputText   name="senha" [(ngModel)]="senha" placeholder="Password">
+      </div>
+      <button type="submit" (click)=handleLogin() class="button"> Entrar </button>
+    </form>
+  </div>
+</div>

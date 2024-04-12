@@ -1,0 +1,19 @@
+
+
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <ul class="navbar-nav">
+          <li><a class="nav-link nav-item active" [routerLink]="['/usuarios']">usuarios</a></li>
+          <li>
+            <a *ngIf="isLoggedIn" class="nav-link nav-item active" [routerLink]="['/perfils']" >perfils</a>
+          </li>
+      </ul>
+      <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
+      <ul  class="navbar-nav text-right">
+        <li>
+          <a *ngIf="isLoggedIn" class="nav-link nav-item active" href="/" (click)=handleLogout()>Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

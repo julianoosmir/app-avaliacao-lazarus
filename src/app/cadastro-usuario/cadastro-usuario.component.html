@@ -1,0 +1,35 @@
+<app-menu></app-menu>
+<div id="wapper">
+  <div class="panel">
+    <h2> Cadastro <span> Usuario</span></h2>
+    <br />
+    <form>
+      <div>
+        <label for="nome">nome : </label>
+        <br />
+        <input type="name" class="form-control" name="nome" [(ngModel)]="nome" placeholder="Enter nome">
+      </div>
+      <br />
+      <br />
+      <div class="form-group">
+        <label for="senha">Password : </label>
+        <br />
+        <input type="password" class="form-control" name="senha" [(ngModel)]="senha" id="senha" placeholder="Password">
+      </div>
+      <br />
+      <div class="form-group">
+        <label for="perfil">perfil : </label>
+        <br />
+        <p-multiSelect [options]="perfis" [(ngModel)]="perfilsSelecionados" [ngModelOptions]="{standalone:true}"
+          display="chip" [showClear]="true" optionLabel="name"></p-multiSelect>
+      </div>
+      <br />
+      <div class="form-group">
+        <label for="ativo">ativo : </label>
+        <input class="form-check-input" type="checkbox" name="ativo" [(ngModel)]="ativo" id="ativo">
+      </div>
+      <button type="submit" (click)="salvar()" class="button"> Salvar </button>
+      <button [routerLink]="['/usuarios']" class="button"> voltar </button>
+    </form>
+  </div>
+</div>

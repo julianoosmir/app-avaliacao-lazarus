@@ -1,0 +1,41 @@
+<app-menu></app-menu>
+
+<div id="wapper">
+  <div class="panel-usuario">
+    <h2> LISTA DE <span>PERFILS</span></h2>
+    <a class="btn btn-primary btn-text-right" *ngIf="role === 'ADMIN'" [routerLink]="['/cadastro-perfil']">
+      <span class="pi pi-plus"></span>
+    </a>
+    <div>
+      <p-table [value]="perfils" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col" sortable="name">nome</th>
+            <th scope="col" sortable="population">descricao</th>
+            <th scope="col" *ngIf="role === 'ADMIN'" sortable="population">Ação</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-perfil>
+          <tr>
+            <th scope="row">  {{ perfil.id }}</th>
+            <td>
+              {{ perfil.name }}
+            </td>
+            <td>{{ perfil.descricao }}</td>
+            <td *ngIf="role === 'ADMIN'">
+              <button mat-fab color="primary" *ngIf="role === 'ADMIN'" (click)="deletar(perfil.id)" class="btn btn-danger"
+                aria-label="Example icon button with a delete icon">
+                <mat-icon>delete</mat-icon>
+              </button>
+              <button class="btn btn-success" *ngIf="role === 'ADMIN'">
+                <i class="pi pi-pencil" [routerLink]="['/cadastro-perfil']" [state]="{perfil:perfil}"></i>
+              </button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+
+  </div>
+</div>
