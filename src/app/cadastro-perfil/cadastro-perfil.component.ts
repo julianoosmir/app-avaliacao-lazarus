@@ -25,7 +25,8 @@ export class CadastroPerfilComponent {
 
   validarCampos() {
     const nomeValido = (this.nome !== '' && this.nome !== null && this.nome !== undefined);
-    const descricaoValida = (this.descricao !== '' && this.descricao !== null && this.descricao !== undefined);
+    const descricaoValida = (this.descricao !== '' && this.descricao !== null
+           && this.descricao !== undefined && this.descricao.length < 5 );
 
     return nomeValido && descricaoValida;
   }
@@ -62,8 +63,8 @@ export class CadastroPerfilComponent {
           this.showSnackbarTopPosition("salvo com sucesso", '', 3000)
         });
       }
-
-
+    }else{
+      this.showSnackbarTopPosition("preencha o campo corretamente", '', 3000)
     }
   }
   showSnackbarTopPosition(content: string, action: string | undefined, duration: any) {
