@@ -11,8 +11,11 @@ import { Perfil } from '../models/Perfil';
   styleUrls: ['./usuarios.component.css'],
 })
 export class UsuariosComponent {
+
   usuarios: UsuarioResponse[] = [];
-  role = '';
+
+  role: string[]= [];
+
   constructor(private usuarioService: UsuarioService,private authenticationService:AuthenticationService) { }
 
   ngOnInit() {
@@ -28,7 +31,6 @@ export class UsuariosComponent {
       .listar()
       .subscribe((usuarios: UsuarioResponse[]) =>{
           this.usuarios = usuarios;
-          console.log(this.usuarios)
       });
   }
 
@@ -40,6 +42,10 @@ export class UsuariosComponent {
     this.usuarioService.delete(id).subscribe(() =>{
         this.usuarios = this.usuarios.filter(forca => forca.id != id);
     })
+  }
+
+  verifyRole(role: string){
+    return this.role.includes(role);
   }
 
 }

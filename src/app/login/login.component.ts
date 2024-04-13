@@ -50,6 +50,7 @@ export class LoginComponent implements OnInit {
         this.invalidLogin = false;
         this.loginSuccess = true;
         this.authenticationService.setToken(result);
+        this.authenticationService.logged();
         this.loginMessage = 'Login Successful.';
         this.showSnackbarTopPosition(this.loginMessage,'',30000)
         this.router.navigate(['/usuarios']);

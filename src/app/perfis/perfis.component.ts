@@ -12,7 +12,7 @@ import { Perfil } from '../models/Perfil';
 export class PerfisComponent {
 
 
-  role = '';
+  role: string[] = [];
   perfils: Perfil[] = [];
 
   constructor(private perfilService: PerfilService, private authenticationService: AuthenticationService, private snackBar: MatSnackBar) { }
@@ -44,4 +44,8 @@ export class PerfisComponent {
       this.getPerfils();
     });
   }
+  verifyRole(role: string){
+    return this.role.includes(role);
+  }
+
 }

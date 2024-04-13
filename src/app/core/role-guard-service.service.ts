@@ -20,7 +20,9 @@ export class RoleGuardServiceService implements CanActivate {
 
     const role_user = this.auth.getRole();
 
-    if(roles.indexOf(role_user) >= 0){
+    const validateRole =  roles.some(el => role_user.includes(el))
+
+    if(validateRole){
       return true
     }else{
       this.showSnackbarTopPosition('Você não tem acesso','',3000);
